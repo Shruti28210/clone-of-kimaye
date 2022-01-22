@@ -1,0 +1,150 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:#eeeeea;
+}
+.slider-container{
+    /* border:2px solid black; */
+    /* width:100%; */
+    margin:auto;
+    overflow:hidden;
+    position:relative;
+}
+.slider{
+    display:flex;
+    width:100%;
+    height:500px;
+}
+#prvebtn{
+    position:absolute;
+    top:50%;
+    z-index:10;
+    left:5%;
+    font-size:30px;
+    cursor: pointer;
+    color:black;
+}
+#nextbtn{
+    position:absolute;
+    top:50%;
+    z-index:10;
+    right:5%;
+    font-size:30px;
+    cursor: pointer;
+    color:black;
+}
+.tag1{
+   text-align:center;
+   margin-top: 4%; 
+}
+.tag1 p{
+    font-family: arial,sans-serif;
+    font-size:25px;
+}
+#mid-land{
+    margin-top:5%;
+}
+.mid-land1{
+   display:flex;
+   justify-content: center;
+}
+.mid-land2{
+    /* border: 1px solid red; */
+    text-align: center;
+    height:600px;
+    width:40%;
+    padding: 25px;
+    color: #d7d7d2;
+}
+.mid-land2 .mid-land2img{
+    /* border: 1px solid red; */
+    height:450px;
+    width:100%;
+    border-radius: 40px; 
+}
+.mid-land2 .midtagimg{
+    margin-top:3%;
+}
+.mid-land2 p{
+    color:black;
+    font-size:17px;
+    font-family: arial;
+}
+.mid-land2 button{
+    background-color:#cd171f;
+    height:40px;
+    width:25%;
+    border-radius:40px;
+    margin-top: 3%;
+    color:white;
+    font-size:15px;
+    border: none;
+    
+}
+#banner{
+    margin-top:5%;
+    text-align:center;
+}
+#banner .bannertag{
+    margin-top: 7%;
+}
+#banner p{
+    font-size: 25px;
+    font-family: arial,sans-serif;
+    margin-top:1.5%;
+}
+.slideshow{
+    width: 100%;
+    height:700px;
+    margin: auto;
+    margin-top: 5%;
+}
+#slideimges{
+    width:100%;
+    height: 570px;
+}
+
+
+
+
+#slider3banner img{
+    height:600px;
+    width:100%;
+}
+#box img{
+    width: 80%;
+    height: 300px;
+    margin-top:150px;
+}
+#slider3{
+    text-align: center;
+    width: 100%;
+    height: 560px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 70px;
+    /* border: 10px solid  black; */
+    /* box-shadow: 0px 0px 5px 2px #ccc; */
+    background-color: #ebcc65;
+    /* background-image: url("./IMAGES/banner2.png"); */
+}
+/* #slider3 button{
+    padding: 20px;
+    border:none;
+    background:#37f;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 45%;
+    cursor: pointer;
+} */
+.next{
+    /* border-radius: 10px 0px 0px 10px; */
+    margin-left: 538px;
+}
+.prev{
+    /* border-radius: 0px 10px 10px 0px; */
+    right: 90%;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slideshow{
+            width: 100%;
+            height:700px;
+            margin: auto;
+        }
+        #slideimges{
+            width:100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <!-- <h1>slide show</h1>
+        <hr/> -->
+        <img src="IMAGES/slideshowimg1.png" id="slideimges">
+    </div>
+</body>
+</html>
+<script>
+    var img=[
+    "IMAGES/slideshowimg1.png",
+    "IMAGES/slideshowimg2.png",
+    "IMAGES/slideshowimg3.png",
+    "IMAGES/slideshowimg4.png",
+    "IMAGES/slideshowimg5.png"
+];
+var i =0;
+
+function slides(){
+document.getElementById("slideimges").src=img[i];
+if(i<(img.length-1))
+i++;
+else
+i=0;
+}
+setInterval(slides, 2000);
+</script>

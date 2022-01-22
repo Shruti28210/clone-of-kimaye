@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARTPAGE</title>
+    <link rel="icon" href="IMAGES/kimaye.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/slider.css"/>
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="./styles/sign.css"/>
+    <link rel="stylesheet" href="./styles/footer.css"/>
+
+    <style>
+        #cartcontainer{
+            display: grid;
+            grid-template-columns:auto auto auto;
+            justify-content: center;
+
+        }
+        #singalmain{
+            width:70%;
+            /* border: 1px solid black; */
+            background-color: rgb(175, 146, 151);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        #pic{
+            width:250px;
+            height:400px;
+            padding: 10px;
+        }
+        .removebtn{
+            background-color: black;
+            color:white;
+            height:40px;
+            width:90px;
+        }
+        #Checkout{
+            background-color:green;
+            width:200px;
+            height:70px;
+            margin: auto;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        #Checkout p {
+            font-size: 20px;
+            color: beige;
+        }
+        #Checkout a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container"></div>
+    <div id="cartcontainer"></div>
+   <a href="finalPayment.html"><div id="Checkout"><p>Go To Checkout</p></div></a>
+    <div id="singalmain"></div>
+</body>
+</html>
+<script>
+    let cartstorefruits = JSON.parse(localStorage.getItem("cartfruitsdata")) || [];
+    console.log(cartstorefruits)
+    let cartcontainer = document.getElementById("cartcontainer");
+    let singal = document.getElementById("singal")
+    appendcartmenu()
+
+    function appendcartmenu(){
+         cartcontainer.innerHTML =null;
+         cartstorefruits.forEach(function(el,index){
+        let singal = document.createElement("div"); 
+        singal.setAttribute("class", "singal");
+
+        let imgfru =document.createElement("img");
+        imgfru.setAttribute("id" ,"pic")
+        imgfru.src = el.picture
+
+        let namefru = document.createElement("h3");
+        namefru.innerText = el.nameitem
+
+        let rupees = document.createElement("h2");
+        rupees.innerText= el.price
+
+        let remove = document.createElement("button");
+        remove.innerHTML ="REMOVE"
+        remove.setAttribute("class","removebtn")
+
+        remove.addEventListener("click",function(){
+            removecart(index)
+        })
+
+        singal.append(imgfru,namefru,rupees,remove)
+        cartcontainer.append(singal)
+         })
+
+     }
+
+     function removecart(a){
+        cartstorefruits.splice(a,1);
+        localStorage.setItem("cartfruitsdata",JSON.stringify(cartstorefruits));
+        appendcartmenu()
+     }
+
+    
+</script>
+
+<script type="module">
+    import navbar from "./components/navbar.js";
+    import footer from "./components/footer.js";
+    console.log(navbar)
+    console.log(footer)
+    let maincontainer=document.getElementById("main-container")
+    maincontainer.innerHTML = navbar();
+    let footercontainer=document.getElementById("footer")
+    footercontainer.innerHTML = footer();
+  </script>

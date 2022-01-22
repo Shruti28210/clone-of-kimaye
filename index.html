@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="IMAGES/kimaye.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/slider.css"/>
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="./styles/sign.css"/>
+    <link rel="stylesheet" href="./styles/footer.css"/>
+
+</head>
+<body>
+    <div id="main-container"></div>
+    <div class="sidebarnavbar">
+        <div id="signup"><h1>SIGN IN</h1></div>
+        <div id="login">
+          <div class="name">
+            <label for="">Email address</label>
+            <input type="text"   id="email">
+        </div>
+  
+        <div class="name">
+            <label for="">Password</label>
+            <input  id="password" type="password">
+        </div>
+  
+        <p id="error"></p>
+        <div id="sub" class="name">
+           <h1>LOGIN</h1>
+        </div>
+  
+        <div id="fb">
+          <div>
+             <a href=""><p>Signin with Facebook</p></a>
+          </div>
+      </div>
+  
+      <div id="gl">
+          <div>
+              <a href=""><p>Google Signup</p></a>
+          </div>
+      </div>
+      <div id="notac">
+        <i class="far fa-user" id="noticon"></i>
+        <p>No account yet?</p>
+        <p>Welcome to Kimaye! Help us with a few details before you begin enjoying our safe and tasty fruits.</p>
+      </div>
+      <div id="sub1" class="name">
+        <h1>Creaet Account</h1>
+     </div>
+        </div>
+      </div> 
+    <div class="slider-container">
+        <i class="fas fa-chevron-left" id="prvebtn"></i>
+        <i class="fas fa-chevron-right" id="nextbtn"></i>
+        <div class ="slider">
+            <img src="IMAGES/kivi.png" alt="" id="last-clone">
+            <img src="IMAGES/grapes.png" alt="">
+            <img src="IMAGES/sraberry.png" alt="">
+            <img src="IMAGES/globe.png" alt="">
+            <img src="IMAGES/box.jpg" alt="">
+            <img src="IMAGES/kivi.png" alt="">
+            <img src="IMAGES/grapes.png" alt="" id="first-clone">
+        </div>
+    </div>
+    <div class="tag1">
+        <img src="IMAGES/tag1.png" alt="">
+        <p>A Handpicked and Curated Fruits offering</p>
+    </div>
+    <div id="mid-land">
+        <div class="mid-land1">
+            <div class="mid-land2">
+                <img src="IMAGES/land-img1.png" alt="" class="mid-land2img">
+                <img src="IMAGES/landtag1.png" alt="" class="midtagimg">
+                <p>Pick and choose from a wide range of delicious fruits</p>
+                <a href="data.html"><button>Shop Now</button></a>
+            </div>
+            <div class="mid-land2">
+                <img src="IMAGES/land-img2.png" alt="" class="mid-land2img">
+                <img src="IMAGES/landtag2.png" alt="" class="midtagimg">
+                <p>We want to spoon-feed you… quite literally</p>
+                <button>Shop Now</button>
+            </div>
+        </div>
+        <div class="mid-land1">
+        <div class="mid-land2">
+            <img src="IMAGES/land-img3.jpg" alt="" class="mid-land2img">
+            <img src="IMAGES/landtag3.png" alt="" class="midtagimg">
+            <p>Indulge in fruit combinations created by us</p>
+            <button>Shop Now</button>
+        </div>
+        <div class="mid-land2">
+            <img src="IMAGES/land-img4.jpg" alt="" class="mid-land2img">
+            <img src="IMAGES/landtag4.png" alt="" class="midtagimg">
+            <p>Healthy & memorable gifts for your loved ones</p>
+            <button>Shop Now</button>
+        </div>
+        </div>
+        <div id="banner">
+            <img src="IMAGES/landbanner.png" alt="">
+            <img src="IMAGES/landtag5.png" alt="" class="bannertag">
+            <p>Witness Our Journey</p>
+        </div>
+
+        <!-- slidesshow -->
+        <div class="slideshow">
+            <img src="IMAGES/slideshowimg1.png" id="slideimges">
+        </div>
+
+
+    <script>
+        var img=[
+        "IMAGES/slideshowimg1.png",
+        "IMAGES/slideshowimg2.png",
+        "IMAGES/slideshowimg3.png",
+        "IMAGES/slideshowimg4.png",
+        "IMAGES/slideshowimg5.png"
+    ];
+    var i =0;
+    
+    function slides(){
+    document.getElementById("slideimges").src=img[i];
+    if(i<(img.length-1))
+    i++;
+    else
+    i=0;
+    }
+    setInterval(slides, 2000);
+    </script>
+
+     <!-- slidesshow end -->
+     <div id=slider3>
+        <div id="box">
+            <img src="IMAGES/3silder1.png">
+        </div>
+        <button class="prev" onclick="previmg()"><i class="fas fa-chevron-left" id="prvebtn"></i></button>
+        <button class="next" onclick="nextimg()"><i class="fas fa-chevron-right" id="nextbtn"></i></button>
+    </div>
+
+
+    <script>
+        var slider3content = document.getElementById("box");
+        var img3 = [
+        "IMAGES/3silder1",
+        "IMAGES/3silder2",
+        "IMAGES/3silder3",
+        "IMAGES/3silder4"
+    ];
+    var i = img3.length;
+    
+    
+    function nextimg(){
+        if(i<img3.length){
+            i = i+1;
+        }else{
+            i = 1;
+        }
+        slider3content.innerHTML = "<img src="+img3[i-1]+".png>";
+    }
+    
+    
+    function previmg(){
+        if(i<img3.length+1 && i>1){
+            i = i-1;
+        }else{
+            i = img3.length;
+        }
+        slider3content.innerHTML = "<img src="+img3[i-1]+".png>";
+    }
+    </script>
+
+
+  <div id="footer"></div>
+</body>
+</html>
+<script src="script/slider.js"></script>
+<!-- <script type="module">
+    import navbar from "./components/navbar.js";
+    import footer from "./components/footer.js";
+    console.log(navbar)
+    console.log(footer)
+    let maincontainer=document.getElementById("main-container")
+    maincontainer.innerHTML = navbar();
+    let footercontainer=document.getElementById("footer")
+    footercontainer.innerHTML = footer();
+  </script> -->
+  <script type="module">
+    import navbar from "./components/navbar.js";
+    import footer from "./components/footer.js";
+    // console.log(navbar)
+    // console.log(footer)
+    let maincontainer=document.getElementById("main-container")
+    maincontainer.innerHTML = navbar();
+    let footercontainer=document.getElementById("footer")
+    footercontainer.innerHTML = footer();
+    import createac from "../script/create.js"
+    import login from "../script/login.js"
+    let sidebarnavbar = document.querySelector(".sidebarnavbar");
+
+
+    let usericon = document.getElementById("user")
+    usericon.addEventListener("click",sidebar)
+
+    let ca = document.getElementById("sub1");
+    // console.log(ca)
+    ca.addEventListener("click",function() {
+    //   console.log("click here")
+      sidebarnavbar.innerHTML = createac()
+  
+      let create_ac_btn=document.getElementById("subreg");
+  
+      let detailarr = JSON.parse(localStorage.getItem("detailinfo"))||[];
+  
+      create_ac_btn.addEventListener("click",function(){
+        let detail1={
+                  name:document.getElementById("name1").value,
+                  lastName : document.getElementById("lastname1").value,
+                  email:document.getElementById("email1").value,
+                  password:document.getElementById("password1").value,
+              };
+              console.log(detail1)
+              detailarr.push(detail1);
+              localStorage.setItem("detailinfo",JSON.stringify(detailarr));
+      })
+    })
+    let log_btn = document.getElementById("signin");
+    log_btn.addEventListener("click", function() {
+        console.log("click");
+      sidebarnavbar.innerHTML = logedin();
+    })
+  
+  </script>
+  <script>
+    let sidebarnavbar = document.querySelector(".sidebarnavbar");
+    let on = false;
+    function sidebar(){
+       if(on==false){
+        sidebarnavbar.style.display="none";
+        on=true;
+       }
+       else{
+        sidebarnavbar.style.display="block";
+        on=false;
+       }
+    }
+  </script>
+
+
+    

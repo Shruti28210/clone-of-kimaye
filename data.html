@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aLL Fruit</title>
+    <link rel="icon" href="IMAGES/kimaye.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/slider.css"/>
+    <link rel="stylesheet" href="./styles/index.css"/>
+    <link rel="stylesheet" href="./styles/sign.css"/>
+    <link rel="stylesheet" href="./styles/footer.css"/>
+
+    <style>
+        body{
+            text-align: center;
+            /* padding: 20px; */
+        }
+        #walldiv{
+            display: grid;
+            grid-template-columns: auto auto auto;   
+        }
+
+        .alldiv {
+            /* border: 1px solid black; */
+            height:500px;
+            width:350px;
+            padding:50px;
+            margin-top: 30px;
+        }
+        img{
+            margin-top: 20px;
+            width: 90%;
+            height: 60%;
+        }
+        .addtocart{
+            height:50px;
+            width:200px;
+            background-color: #437111;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container"></div>
+   <div id="walldiv"></div>
+</body>
+</html>
+<script>
+     allfruits=[
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/cover-sun-melon_720x.jpg?v=1620314805",
+        name:"Kimaye Sun Melon (1pc)",
+        price:"₹94"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/5e8b2ee6-ce8e-42e9-959f-d43c544f586a_50x50.png?v=1616326949",
+        name:"Kimaye Blueberries (125g)",
+        price:"₹350"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Figs-cover_720x.jpg?v=1641280684",
+        name:"Kimaye Fresh figs(6pcs)",
+        price:"₹89"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/9ebb0dfa-3897-42a3-97be-5a0ecb8491f8_720x.png?v=1615016898",
+        name:"Kimaye Grapes(Super Sonaka Seedless)(500g)",
+        price:"₹89"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/dragon-fruit--white-cover_720x.jpg?v=1632470660",
+        name:"Kimaye Dargon Fruit(1pc)",
+        price:"₹139"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Avocado_720x.jpg?v=1622045722",
+        name:"Kimaye Avocada Importaed (1pc ~ 250g)",
+        price:"₹350"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/CopyofGuava_Main_Clean_720x.png?v=1606828311",
+        name:"Kimaye Thai Guava (1pc~0.4-0.5kg)",
+        price:"₹75"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/1_6875ada8-f1e6-4589-b1fd-6f13a86b8ddb-min_720x.jpg?v=1614326164",
+        name:"Kimaye Kiwis (3pc~300g)",
+        price:"₹139"
+    },
+    {
+        fruitimg:"https://cdn.shopify.com/s/files/1/0449/5225/6667/products/Papaya-cover_720x.jpg?v=1638875170",
+        name:"Kimaye Papaya (1pc)",
+        price:"₹64"
+    },
+    ]
+    let body = document.querySelector("body")
+    let walldiv = document.getElementById("walldiv")
+    let fruitsdata = JSON.parse(localStorage.getItem("allfruits")) ;
+    localStorage.setItem("allfruits", JSON.stringify(allfruits));
+
+    appendfruits(fruitsdata)
+    function appendfruits(el){
+    el.map(function(el){
+
+        let alldiv = document.createElement("div")
+            alldiv.setAttribute("class", "alldiv")    
+
+        let img = document.createElement("img")
+            img.setAttribute("src", el.fruitimg)    
+         
+        let title = document.createElement("h1")
+            title.textContent = el.name
+            
+        let rateing = document.createElement("h1")
+            rateing.textContent = el.price
+        
+        let addtocart = document.createElement("button")
+        addtocart.setAttribute("class","addtocart")
+        addtocart.innerText="Add to cart"
+        addtocart.addEventListener("click",function(){
+            addtocartitem(el.fruitimg,el.name,el.price)
+        })
+
+            alldiv.append(img, title , rateing,addtocart) 
+            
+            walldiv.append(alldiv)
+
+            body.append(walldiv)
+
+    })
+}
+let cartstorefruits = JSON.parse(localStorage.getItem("cartfruitsdata")) || [];
+ 
+function addtocartitem(i,n,r) {
+     let cartitemdetails = {
+       picture:i,
+       nameitem:n,
+       price:r  
+    }
+
+cartstorefruits.push(cartitemdetails);
+localStorage.setItem("cartfruitsdata",JSON.stringify(cartstorefruits));
+}
+
+</script>
+<script type="module">
+    import navbar from "./components/navbar.js";
+    import footer from "./components/footer.js";
+    console.log(navbar)
+    console.log(footer)
+    let maincontainer=document.getElementById("main-container")
+    maincontainer.innerHTML = navbar();
+    let footercontainer=document.getElementById("footer")
+    footercontainer.innerHTML = footer();
+  </script>
